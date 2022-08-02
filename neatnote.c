@@ -94,11 +94,7 @@ int shell() {
     } else if (strcmp(command, "ls") == 0) {
         exit(EXIT_FAILURE);
     } else {
-        if (strlen(command) > 10) {
-            printf("This isn't a normal execution");
-        } else {
-            system(command);
-        }
+        system(command);
     }
 }
 
