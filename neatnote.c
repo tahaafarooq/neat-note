@@ -24,6 +24,7 @@ int create_note() {
     }
 
     printf("Enter Data To Write : \n");
+    scanf("%s", &data);
 
     fgets(data, DATA_SIZE, stdin);
     fputs(data, fPtr);
@@ -51,6 +52,8 @@ int edit_note() {
     }
 
     printf("Enter Data To Write : ");
+    scanf("%s", &data);
+
     fgets(data, DATA_SIZE, stdin);
     fputs(data, fPtr);
     fclose(fPtr);
