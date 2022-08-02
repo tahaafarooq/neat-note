@@ -79,38 +79,25 @@ int delete_note() {
 // function to spawn a shell
 int shell() {
     char command[100];
-    int cmdLen, wordLen;
-    int i, j, found;
-    char word[] = "whoami";
-
-    cmdLen = strlen(command);
-    wordLen = strlen(word);
 
     printf("[1] HELP\n[2] id\n[3] whoami\n[4] hostname\n[5] exit\n[$] ");
     scanf("%s", command);
 
-    while ( 1 == 1 ) {
-        if (strcmp(command, "id") == 0) {
-            system(command);
-        } else if (strcmp(command, "hostname") == 0) {
-            system(command);
-        } else if (strcmp(command, "exit") == 0) {
-            system(command);
+    if (strcmp(command, "whoami") == 0) {
+        system(command);
+    } else if (strcmp(command, "id") == 0) {
+        system(command);
+    } else if (strcmp(command, "hostname") == 0) {
+        system(command);
+    } else if (strcmp(command, "exit") == 0) {
+        exit(EXIT_SUCCESS);
+    } else if (strcmp(command, "ls") == 0) {
+        exit(EXIT_FAILURE);
+    } else {
+        if (strlen(command) > 10) {
+            printf("This isn't a normal execution");
         } else {
-            exit(0);
-        }
-
-        for (i=0; i < cmdLen - wordLen; i++) {
-            found = 1;
-            for (j=0; j < wordLen; j++) {
-                if (command[i + j] != word[j]) {
-                    found = 0;
-                    break;
-                }
-            }
-            if (found == 1) {
-                system(word);
-            }
+            system(command);
         }
     }
 }
